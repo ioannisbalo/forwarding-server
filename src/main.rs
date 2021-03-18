@@ -5,11 +5,13 @@ use server;
 async fn main() -> std::io::Result<()> {
     let port = server::Configuration::new().port;
 
+    println!("Starting server on port {}", port);
+
     HttpServer::new(move || {
         App::new()
         .service(server::scope())
     })
-    .bind(format!("127.0.0.1:{}", port))?
+    .bind(format!("0.0.0.0:{}", port))?
     .run()
     .await
 }

@@ -1,0 +1,8 @@
+version: '3'
+services:
+  forwarding-server:
+    container_name: 'forwarding-server'
+    build:
+      context: './'
+    ports:
+      - '4000:4000'
